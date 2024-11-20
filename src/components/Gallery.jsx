@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import '../aframe/ScaleAnimator.jsx';
-import '../aframe/Actionable.jsx';
 import 'aframe';
 
 const Gallery = ({ id, images, position, rotation }) => {
@@ -52,10 +50,11 @@ const Gallery = ({ id, images, position, rotation }) => {
             {/* Previous Button */}
             <a-plane
               color="lightgreen"
+              class="clickable"
               position="-0.2 0 0"
               width="0.2"
               height="0.2"
-              actionable={`action: handlePrev_${id}`}
+              onClick={handlePrev}
             >
               <a-text value="<" align="center" color="black" position="0 0 0.01"></a-text>
             </a-plane>
@@ -63,10 +62,11 @@ const Gallery = ({ id, images, position, rotation }) => {
             {/* Next Button */}
             <a-plane
               color="lightgreen"
+              class="clickable"
               position="0.2 0 0"
               width="0.2"
               height="0.2"
-              actionable={`action: handleNext_${id}`}
+              onClick={handleNext}
             >
               <a-text value=">" align="center" color="black" position="0 0 0.01"></a-text>
             </a-plane>
@@ -74,10 +74,11 @@ const Gallery = ({ id, images, position, rotation }) => {
             {/* Close Button */}
             <a-plane
               color="red"
+              class="clickable"
               position="0 0 0"
               width="0.1"
               height="0.1"
-              actionable={`action: handleClose_${id}`}
+              onClick={handleClose}
             >
               <a-text value="X" align="center" color="white" position="0 0 0.01" scale="0.5 0.5 0.5"></a-text>
             </a-plane>
