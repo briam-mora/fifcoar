@@ -6,6 +6,7 @@ import './aframe/ScaleAnimator.jsx';
 import './aframe/RotationAnimator.jsx';
 import './aframe/GLTFMaterialFix.jsx';
 import content from './content.json';
+import { DEFAULT_DISTANCE_FROM_USER } from './constants.js';
 
 export function App() {
   return (
@@ -31,15 +32,29 @@ export function App() {
         <a-entity
           gltf-model="icon.glb"
           rotation-animator="duration: 5000"
-          position="0 0 -2"
+          position={`0 0 -${DEFAULT_DISTANCE_FROM_USER}`}
           scale="2 2 2"
           gltf-material-fix
         ></a-entity>
 
-        <VideoGallery videos={content.videos.map(video => `#${video.id}`)} title="Video Inicial" position="2 0 0" rotation="0 -90 0" scale="1 1 1" />
-        <VideoGallery videos={["#video"]} title="Video Inicial" position="-2 0 0" rotation="0 90 0" scale="1 1 1" />
+        <VideoGallery 
+        videos={content.videos.map(video => `#${video.id}`)} 
+        title="Video Inicial" 
+        position={`${DEFAULT_DISTANCE_FROM_USER} 0 0`}
+        rotation="0 -90 0" 
+        scale="1 1 1" />
+        <VideoGallery 
+        videos={["#video"]} 
+        title="Video Inicial" 
+        position={`-${DEFAULT_DISTANCE_FROM_USER} 0 0`}
+        rotation="0 90 0" 
+        scale="1 1 1" />
 
-        <ImageGallery id='gallery-1' images={["#panelista-1", "#panelista-2", "#panelista-3", "#panelista-4"]} position="0 0 2" rotation="0 180 0" />
+        <ImageGallery 
+        id='gallery-1' 
+        images={["#panelista-1", "#panelista-2", "#panelista-3", "#panelista-4"]} 
+        position={`0 0 ${DEFAULT_DISTANCE_FROM_USER}`}
+        rotation="0 180 0" />
       </a-scene>
     </>
   );
