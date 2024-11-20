@@ -51,8 +51,8 @@ const VideoGallery = ({ videos, title, position, rotation, scale }) => {
       <a-text
         value={title}
         align="center"
-        position="0 9 0.1"
-        width="16"
+        position="0 0.8 0.1"
+        width="2"
         color="white"
         scale-animator="duration: 500; easing: easeInOutCubic"
       ></a-text>
