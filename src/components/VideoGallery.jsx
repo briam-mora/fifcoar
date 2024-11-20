@@ -36,6 +36,7 @@ const VideoGallery = ({ videos, title, position, rotation, scale }) => {
     const videoElement = document.querySelector(videos[currentIndex]);
     if (videoElement) {
       videoRef.current = videoElement;
+      videoElement.currentTime = 0;
       videoElement.play();
     }
   }, [currentIndex]);
