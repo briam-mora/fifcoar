@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import 'aframe';
 
-const ImageGallery = ({ id, images, position, rotation }) => {
+const ImageGallery = ({ images, position, rotation, closeFunction }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Handlers for navigation
   const handleNext = () => {
+    var audio = new Audio('click.wav');
+    audio.play();
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const handlePrev = () => {
+    var audio = new Audio('click.wav');
+    audio.play();
     setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
   const handleClose = () => {
-    // Hide the gallery or add custom logic
+    closeFunction();
   };
 
   return (
@@ -51,6 +55,7 @@ const ImageGallery = ({ id, images, position, rotation }) => {
               width="0.2"
               height="0.2"
               onClick={handlePrev}
+              scale-animator="duration: 500; easing: easeInOutCubic"
             >
               <a-text value="<" align="center" color="black" position="0 0 0.01"></a-text>
             </a-plane>
@@ -63,6 +68,7 @@ const ImageGallery = ({ id, images, position, rotation }) => {
               width="0.2"
               height="0.2"
               onClick={handleNext}
+              scale-animator="duration: 500; easing: easeInOutCubic"
             >
               <a-text value=">" align="center" color="black" position="0 0 0.01"></a-text>
             </a-plane>
@@ -75,6 +81,7 @@ const ImageGallery = ({ id, images, position, rotation }) => {
               width="0.1"
               height="0.1"
               onClick={handleClose}
+              scale-animator="duration: 500; easing: easeInOutCubic"
             >
               <a-text value="X" align="center" color="white" position="0 0 0.01" scale="0.5 0.5 0.5"></a-text>
             </a-plane>

@@ -1,8 +1,6 @@
 import 'aframe';
 
 AFRAME.registerComponent('gltf-material-fix', {
-  schema: {
-  },
 
   init: function () {
     const el = this.el;

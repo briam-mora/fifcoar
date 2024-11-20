@@ -8,3 +8,15 @@ body,
     height: 100%;
     overflow: hidden;
 }
+
+.a-dialog-allow-button {
+    background-color: red;
+}
+
+.a-dialog-deny-button {
+    background-color: blue;
+}
+
+.a-dialog-ok-button {
+    background-color: green;
+}
