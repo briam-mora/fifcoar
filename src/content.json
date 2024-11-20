@@ -1,0 +1,7 @@
+{
+    "videos": [
+        { "id":"panelista1", "src": "RafaelSegovia.mp4", "muted": true, "autoPlay": true},
+        { "id":"panelista2", "src": "MaureenPhillips.mp4", "muted": true, "autoPlay": true},
+        { "id":"panelista3", "src": "ScarletPietri.mp4", "muted": true, "autoPlay": true}
+    ]
+}
