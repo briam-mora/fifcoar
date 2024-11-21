@@ -20,3 +20,11 @@ body,
 .a-dialog-ok-button {
     background-color: #9BD7E1;
 }
+
+.a-loading-screen {
+    background: #2D387F; /* Background color */
+    color: #ffffff; /* Text color */
+  }
+  .a-loading-screen .spinner {
+    border-color: #ffffff transparent transparent transparent; /* Spinner colors */
+  }
