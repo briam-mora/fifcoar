@@ -14,11 +14,11 @@
         {"id":"image4", "src": "art_fifco-27.png"}
     ],
     "panelists": [
-        {"id":"panelist-button-1", "src": "art_fifco-08.png"},
-        {"id":"panelist-button-2", "src": "art_fifco-09.png"},
-        {"id":"panelist-button-3", "src": "art_fifco-10.png"},
-        {"id":"panelist-button-4", "src": "art_fifco-11.png"},
-        {"id":"panelist-button-5", "src": "art_fifco-12.png"},
-        {"id":"panelist-button-6", "src": "art_fifco-13.png"}
+        {"id":"panelist-button-1", "src": "nuevo-small_panelista1.png"},
+        {"id":"panelist-button-2", "src": "nuevo-small_panelista2.png"},
+        {"id":"panelist-button-3", "src": "nuevo-small_panelista3.png"},
+        {"id":"panelist-button-4", "src": "nuevo-small_panelista4.png"},
+        {"id":"panelist-button-5", "src": "nuevo-small_panelista5.png"},
+        {"id":"panelist-button-6", "src": "nuevo-small_panelista6.png"}
     ]
 }

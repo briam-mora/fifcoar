@@ -10,7 +10,6 @@ AFRAME.registerComponent('gltf-material-fix', {
     const data = this.data;
 
     el.addEventListener("model-loaded", e => {
-      console.log(this.data.color)
       // grab the mesh 
       let model = this.el.getObject3D("mesh");
       // find the node with the basic material     
