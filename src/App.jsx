@@ -10,6 +10,7 @@ import { DEFAULT_DISTANCE_FROM_USER } from './constants.js';
 
 export function App() {
   const [showPanelist, setShowPanelists] = useState(false);
+  const [started, setStarted] = useState(false);
   const [showCharacteristics, setShowCharacteristics] = useState(false);
 
   return (
@@ -42,14 +43,34 @@ export function App() {
         {/* Sky with panorama */}
         <a-sky src="#panorama"></a-sky>
 
-        <a-entity
+        {started && <a-entity
           id="logo-model"
-          gltf-model="icon.glb"
-          rotation-animator="duration: 5000"
+          rotation-animator="duration: 10000"
           position={`0 0 -${DEFAULT_DISTANCE_FROM_USER}`}
-          scale="0 0 0"
-          gltf-material-fix
-        ></a-entity>
+          scale="1 1 1"
+        >
+          <a-entity
+            gltf-model="logo_genesis.glb"
+            position="0.03 -0.1 0"
+            rotation="90 0 0"
+            scale="0.2 0.2 0.2"
+            gltf-material-fix="color: #DE5C46;"
+          ></a-entity>
+          <a-entity
+            gltf-model="logo_prime.glb"
+            position="0 0.3 0"
+            rotation="90 0 0"
+            scale="0.5 0.5 0.5"
+            gltf-material-fix="color: #A7D6E1;"
+          ></a-entity>
+          <a-entity
+            gltf-model="logo_team.glb"
+            position="0 0.1 0"
+            rotation="90 0 0"
+            scale="0.6 0.6 0.6"
+            gltf-material-fix="color: #A7D6E1;"
+          ></a-entity>
+        </a-entity>}
 
 
         <a-plane
@@ -60,8 +81,7 @@ export function App() {
           scale="0.9 1.6 1"
           material="shader: flat"
           onClick={(e) => {
-            const model = document.querySelector("#logo-model");
-            model.setAttribute("scale","2 2 2")
+            setStarted(true);
             var audio = new Audio('musica.wav');
             audio.loop = true; // Enable looping
             audio.volume = 0.1;
