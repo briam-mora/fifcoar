@@ -298,7 +298,7 @@ export function App() {
         <a-plane
           src="#ambient1"
           transparent="true"
-          position="1 1 2"
+          position="1 1.5 2"
           rotation="0 180 0"
           scale="0.25 0.25 0.25"
           material="shader: flat"
