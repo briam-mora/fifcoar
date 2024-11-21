@@ -96,8 +96,10 @@ export function App() {
             setStarted(true);
             var audio = new Audio('musica.wav');
             audio.loop = true; // Enable looping
-            audio.volume = 0.1;
+            audio.volume = 0.05;
             audio.play();
+            var voice = new Audio('bienvenida.wav');
+            voice.play();
             e.target.setAttribute("scale", "0 0 0")
           }}
         ></a-plane>
