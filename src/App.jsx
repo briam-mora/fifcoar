@@ -41,6 +41,10 @@ export function App() {
           <img id="play-button" src="play.png" />
           <img id="pantalla-carga" src="pantalla_carga.png" />
           <img id="celular" src="celular.png" />
+          <img id="celular-flechas" src="celular-flechas.png" />
+          <img id="celular-instrucciones" src="celular-instrucciones.png" />
+          <img id="video-titulo" src="back_prime.png" />
+          <img id="panelistas-video-titulo" src="titulo_panelistas_galeria.png" />
           <img id="panelists-button" src="titulo_panelistas.png" />
           <img id="characteristics-title" src="back-equipo.png" />
           <img id="panelists-text" src="nuevo-small_back_panelista.png" />
@@ -67,18 +71,52 @@ export function App() {
         {started && <a-plane
           class="clickable"
           src="#date"
-          position={`0 -0.4 -${DEFAULT_DISTANCE_FROM_USER}`}
+          position={`0.04 -0.2 -${DEFAULT_DISTANCE_FROM_USER}`}
           rotation="0 0 0"
-          scale="1 0.2 1"
+          scale="1.4 0.2 1.4"
           transparent="true"
           material="shader: flat"
           onClick={() => { window.open('https://maps.app.goo.gl/iwQ4uWfBv2cank8i9?g_st=com.google.maps.preview.copy', '_blank'); }}
         ></a-plane>}
 
+        {started && (
+          <a-entity position={`0 -0.45 -${DEFAULT_DISTANCE_FROM_USER - 0.1}`}>
+            <a-plane
+              src="#celular-instrucciones"
+              position="0 -0.2 0"
+              transparent="true"
+              scale="0.5 0.1 0.1"
+              material="shader: flat"
+            >
+            </a-plane>
+            <a-plane
+              src="#celular-flechas"
+              position="0 0 0"
+              transparent="true"
+              scale="0.3 0.05 0.1"
+              material="shader: flat"
+            >
+            </a-plane>
+            <a-entity
+              position="0 0 0.08"
+              animation="property: rotation; from: 0 -45 0; to: 0 45 0; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate;"
+            >
+              <a-plane
+                src="#celular"
+                position="0 0 -0.05"
+                transparent="true"
+                scale="0.1 0.2 0.1"
+                material="shader: flat"
+              >
+              </a-plane>
+            </a-entity>
+          </a-entity>
+        )}
+
         {started && <a-entity
           id="logo-model"
           hover-animator="duration: 2000; easing: easeInOutQuad;"
-          position={`0 0.1 -${DEFAULT_DISTANCE_FROM_USER}`}
+          position={`0 0.15 -${DEFAULT_DISTANCE_FROM_USER}`}
           scale="1 1 1"
         >
           <a-entity
@@ -104,7 +142,6 @@ export function App() {
           ></a-entity>
         </a-entity>}
 
-
         <a-plane
           class="clickable"
           src="#pantalla-carga"
@@ -121,21 +158,7 @@ export function App() {
             voice.play();
             e.target.setAttribute("scale", "0 0 0")
           }}
-        >
-          <a-entity
-            position="0 -0.15 0.07"
-            animation="property: rotation; from: 0 -45 0; to: 0 45 0; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate;"
-          >
-            <a-plane
-              src="#celular"
-              position="0 0 -0.05"
-              transparent="true"
-              scale="0.1 0.1 0.1"
-              material="shader: flat"
-            >
-            </a-plane>
-          </a-entity>
-        </a-plane>
+        ></a-plane>
 
 
         {!showPanelist && <a-entity
@@ -177,16 +200,20 @@ export function App() {
 
         {showPanelist && <VideoGallery
           videos={content.videos}
+          titleSrc="#panelistas-video-titulo"
           position={`-${DEFAULT_DISTANCE_FROM_USER} 0 0`}
           rotation="0 90 0"
           scale="1 1 1"
           closeFunction={() => setShowPanelists(false)} />}
 
+          {/* Video Principal */}
+
         <VideoGallery
           videos={[{ src: "#video", autoplay: false }]}
+          titleSrc="#video-titulo"
           position={`${DEFAULT_DISTANCE_FROM_USER} 0 0`}
           rotation="0 -90 0"
-          scale="1 1 1" />
+          scale="1 1 1"/>
 
         {!showCharacteristics && <a-plane
           class="clickable"
@@ -307,11 +334,11 @@ export function App() {
         <a-plane
           src="#ambient2"
           transparent="true"
-          position="-2 2 0"
+          position="-2 1 -1"
           rotation="0 90 0"
           scale="0.25 0.25 0.25"
           material="shader: flat"
-          animation="property: position; to: -1 2 -1; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+          animation="property: position; to: -1 1 -1; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
         ></a-plane>
         <a-plane
           src="#ambient1"
@@ -321,6 +348,15 @@ export function App() {
           scale="0.25 0.25 0.25"
           material="shader: flat"
           animation="property: position; to: 3 1 -1; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+        ></a-plane>
+        <a-plane
+          src="#ambient3"
+          transparent="true"
+          position="2 1 1"
+          rotation="0 -90 0"
+          scale="0.5 0.25 0.5"
+          material="shader: flat"
+          animation="property: position; to: 1 0.5 1; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
         ></a-plane>
       </a-scene>
     </>
