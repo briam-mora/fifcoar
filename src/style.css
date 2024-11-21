@@ -10,13 +10,13 @@ body,
 }
 
 .a-dialog-allow-button {
-    background-color: red;
+    background-color: #9BD7E1;
 }
 
 .a-dialog-deny-button {
-    background-color: blue;
+    background-color: #2D387F;
 }
 
 .a-dialog-ok-button {
-    background-color: green;
+    background-color: #9BD7E1;
 }

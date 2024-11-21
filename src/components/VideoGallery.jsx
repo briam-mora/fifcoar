@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import 'aframe';
 
-const VideoGallery = ({ videos, title, position, rotation, scale, closeFunction }) => {
+const VideoGallery = ({ videos, position, rotation, scale, closeFunction }) => {
   const videoRef = useRef(null); // Reference to the video element
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [playing, setPlaying] = useState(videos[0].autoPlay);
 
   // Handlers for navigation
   const handleNext = () => {
@@ -28,8 +29,12 @@ const VideoGallery = ({ videos, title, position, rotation, scale, closeFunction 
     const videoElement = videoRef.current;
     if (videoElement) {
       if (videoElement.paused) {
+        setPlaying(true)
         videoElement.play();
+        var audio = new Audio('activacion_video.wav');
+        audio.play();
       } else {
+        setPlaying(false)
         videoElement.pause();
       }
     }
@@ -37,10 +42,11 @@ const VideoGallery = ({ videos, title, position, rotation, scale, closeFunction 
 
   useEffect(() => {
     // Ensure the video is loaded and set up
-    const videoElement = document.querySelector(videos[currentIndex]);
+    const videoElement = document.querySelector(videos[currentIndex].src);
     if (videoElement) {
       videoRef.current = videoElement;
       videoElement.currentTime = 0;
+      video.removeAttribute("loop");
       videoElement.play();
     }
   }, [currentIndex]);
@@ -52,20 +58,19 @@ const VideoGallery = ({ videos, title, position, rotation, scale, closeFunction 
       rotation={rotation}
       scale={scale}
     >
-      {/* Title above the video */}
-      <a-text
-        value={title}
-        align="center"
-        position="0 0.8 0.1"
-        width="2"
-        color="white"
+      <a-plane
+        src="#light-arrow"
+        position="0 1 0"
+        scale="0.2 0.3 0.2"
         scale-animator="duration: 500; easing: easeInOutCubic"
-      ></a-text>
+        transparent="true"
+        material="shader: flat"
+      ></a-plane>
 
       {/* Video */}
       <a-video
-        class="clickable"
-        src={videos[currentIndex]}
+        class={videos[currentIndex].autoPlay ? "" : "clickable"}
+        src={videos[currentIndex].src}
         width="9"
         height="16"
         position="0 0 0"
@@ -73,6 +78,19 @@ const VideoGallery = ({ videos, title, position, rotation, scale, closeFunction 
         onClick={handleVideoClick}
         scale="0.1 0.1 0.1"
       ></a-video>
+
+      {!playing && <a-plane
+        position="0 0 0.01"
+        opacity="0.5"
+        scale="0.9 1.6 1"
+      ></a-plane>}
+      {!playing && <a-plane
+        src="#play-button"
+        position="0 0 0.02"
+        transparent="true"
+        scale="0.2 0.2 0.2"
+        scale-animator="duration: 500; easing: easeInOutCubic"
+      ></a-plane>}
 
       {/* Navigation Buttons */}
       {videos.length > 1 && <a-entity position="0 -1 0">
@@ -83,47 +101,50 @@ const VideoGallery = ({ videos, title, position, rotation, scale, closeFunction 
               key={index}
               position={`${index * 0.1 - ((videos.length - 1) * 0.1) / 2} 0 0`}
               radius="0.02"
-              color={index === currentIndex ? 'blue' : 'gray'}
+              color={index === currentIndex ? '#2D387F' : '#9BD7E1'}
             ></a-circle>
           ))}
         </a-entity>
         {/* Previous Button */}
         <a-plane
-          color="lightgreen"
+          src="#prev"
           class="clickable"
           position="-0.2 0 0"
           width="0.2"
           height="0.2"
           onClick={handlePrev}
           scale-animator="duration: 500; easing: easeInOutCubic"
+          transparent="true"
+          material="shader: flat"
         >
-          <a-text value="<" align="center" color="black" position="0 0 0.01"></a-text>
         </a-plane>
 
         {/* Next Button */}
         <a-plane
-          color="lightgreen"
+          src="#next"
           class="clickable"
           position="0.2 0 0"
           width="0.2"
           height="0.2"
           onClick={handleNext}
           scale-animator="duration: 500; easing: easeInOutCubic"
+          transparent="true"
+          material="shader: flat"
         >
-          <a-text value=">" align="center" color="black" position="0 0 0.01"></a-text>
         </a-plane>
 
         {/* Close Button */}
         <a-plane
-          color="red"
+          src="#close"
           class="clickable"
           position="0 0 0"
           width="0.1"
           height="0.1"
           onClick={handleClose}
           scale-animator="duration: 500; easing: easeInOutCubic"
+          transparent="true"
+          material="shader: flat"
         >
-          <a-text value="X" align="center" color="white" position="0 0 0.01" scale="0.5 0.5 0.5"></a-text>
         </a-plane>
       </a-entity>}
     </a-entity>

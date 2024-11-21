@@ -1,7 +1,24 @@
 {
     "videos": [
         { "id":"panelista1", "src": "RafaelSegovia.mp4", "muted": true, "autoPlay": true},
-        { "id":"panelista2", "src": "MaureenPhillips.mp4", "muted": true, "autoPlay": true},
-        { "id":"panelista3", "src": "ScarletPietri.mp4", "muted": true, "autoPlay": true}
+        { "id":"panelista2", "src": "ScarletPietri.mp4", "muted": true, "autoPlay": true},
+        { "id":"panelista3", "src": "AdrianaGonzalez.mp4", "muted": true, "autoPlay": true},
+        { "id":"panelista4", "src": "StephanieMora.mp4", "muted": true, "autoPlay": true},
+        { "id":"panelista5", "src": "MaureenPhillips.mp4", "muted": true, "autoPlay": true},
+        { "id":"panelista6", "src": "AlbanBarrantes.mp4", "muted": true, "autoPlay": true}
+    ],
+    "images": [
+        {"id":"image1", "src": "art_fifco-24.png"},
+        {"id":"image2", "src": "art_fifco-25.png"},
+        {"id":"image3", "src": "art_fifco-26.png"},
+        {"id":"image4", "src": "art_fifco-27.png"}
+    ],
+    "panelists": [
+        {"id":"panelist-button-1", "src": "art_fifco-08.png"},
+        {"id":"panelist-button-2", "src": "art_fifco-09.png"},
+        {"id":"panelist-button-3", "src": "art_fifco-10.png"},
+        {"id":"panelist-button-4", "src": "art_fifco-11.png"},
+        {"id":"panelist-button-5", "src": "art_fifco-12.png"},
+        {"id":"panelist-button-6", "src": "art_fifco-13.png"}
     ]
 }

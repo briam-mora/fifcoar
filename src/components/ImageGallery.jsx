@@ -32,6 +32,8 @@ const ImageGallery = ({ images, position, rotation, closeFunction }) => {
             rotation="0 0 0"
             scale="1 1 1"
             scale-animator="duration: 500; easing: easeInOutCubic"
+            transparent="true"
+            material="shader: flat"
           ></a-plane>
 
           {/* Navigation Buttons */}
@@ -43,47 +45,50 @@ const ImageGallery = ({ images, position, rotation, closeFunction }) => {
                   key={index}
                   position={`${index * 0.1 - ((images.length - 1) * 0.1) / 2} 0 0`}
                   radius="0.02"
-                  color={index === currentIndex ? 'blue' : 'gray'}
+                  color={index === currentIndex ? '#2D387F' : '#9BD7E1'}
                 ></a-circle>
               ))}
             </a-entity>
             {/* Previous Button */}
             <a-plane
-              color="lightgreen"
+              src="#prev"
               class="clickable"
               position="-0.2 0 0"
               width="0.2"
               height="0.2"
               onClick={handlePrev}
               scale-animator="duration: 500; easing: easeInOutCubic"
+              transparent="true"
+              material="shader: flat"
             >
-              <a-text value="<" align="center" color="black" position="0 0 0.01"></a-text>
             </a-plane>
 
             {/* Next Button */}
             <a-plane
-              color="lightgreen"
+              src="#next"
               class="clickable"
               position="0.2 0 0"
               width="0.2"
               height="0.2"
               onClick={handleNext}
               scale-animator="duration: 500; easing: easeInOutCubic"
+              transparent="true"
+              material="shader: flat"
             >
-              <a-text value=">" align="center" color="black" position="0 0 0.01"></a-text>
             </a-plane>
 
             {/* Close Button */}
             <a-plane
-              color="red"
+              src="#close"
               class="clickable"
               position="0 0 0"
               width="0.1"
               height="0.1"
               onClick={handleClose}
               scale-animator="duration: 500; easing: easeInOutCubic"
+              transparent="true"
+              material="shader: flat"
             >
-              <a-text value="X" align="center" color="white" position="0 0 0.01" scale="0.5 0.5 0.5"></a-text>
             </a-plane>
           </a-entity>}
         </a-entity>
