@@ -13,6 +13,18 @@ export function App() {
   const [started, setStarted] = useState(false);
   const [showCharacteristics, setShowCharacteristics] = useState(false);
 
+  const openCharacteristics = () => {
+    var audio = new Audio('activacion_video.wav');
+    audio.play();
+    setShowCharacteristics(true)
+  }
+
+  const openPanelists = () => {
+    var audio = new Audio('activacion_video.wav');
+    audio.play();
+    setShowPanelists(true)
+  }
+
   return (
     <>
       <a-scene>
@@ -99,19 +111,17 @@ export function App() {
           scale="1 0.75 1"
           transparent="true"
           material="shader: flat"
-          onClick={() => {
-            var audio = new Audio('activacion_video.wav');
-            audio.play();
-            setShowPanelists(true)
-          }}
+          onClick={openPanelists}
         >
           {content.panelists.map((panelist, index) => (
             <a-plane
               src={`#${panelist.id}`}
+              class="clickable"
               position={`${-0.8 + index * 0.3} -0.8 ${0 + index * 0.01}`}
               scale="0.35 0.5 1"
               transparent="true"
               material="shader: flat"
+              onClick={openPanelists}
             ></a-plane>
           ))}
         </a-plane>
@@ -137,39 +147,43 @@ export function App() {
           scale="1 0.75 1"
           transparent="true"
           material="shader: flat"
-          onClick={() => {
-            var audio = new Audio('activacion_video.wav');
-            audio.play();
-            setShowCharacteristics(true)
-          }}
+          onClick={openCharacteristics}
         >
           <a-plane
             src="#characteristics-1"
+            class="clickable"
             position="-0.4 0.8 0"
             scale="0.2 0.5 1"
             transparent="true"
             material="shader: flat"
+            onClick={openCharacteristics}
           ></a-plane>
           <a-plane
             src="#characteristics-2"
+            class="clickable"
             position="-0.1325 0.8 0"
             scale="0.2 0.5 1"
             transparent="true"
             material="shader: flat"
+            onClick={openCharacteristics}
           ></a-plane>
           <a-plane
             src="#characteristics-3"
+            class="clickable"
             position="0.1325 0.8 0"
             scale="0.2 0.5 1"
             transparent="true"
             material="shader: flat"
+            onClick={openCharacteristics}
           ></a-plane>
           <a-plane
             src="#characteristics-4"
+            class="clickable"
             position="0.4 0.8 0"
             scale="0.2 0.5 1"
             transparent="true"
             material="shader: flat"
+            onClick={openCharacteristics}
           ></a-plane>
         </a-plane>
 
