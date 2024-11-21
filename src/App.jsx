@@ -203,7 +203,7 @@ export function App() {
             src="#characteristics-title"
             class="clickable"
             position="0 1.35 0"
-            scale="1 0.2 1"
+            scale="1.3 0.2 1.3"
             transparent="true"
             material="shader: flat"
             onClick={openCharacteristics}
