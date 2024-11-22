@@ -57,6 +57,10 @@ export function App() {
           <img id="ambient1" src="ambient_element1.png" />
           <img id="ambient2" src="ambient_element3.png" />
           <img id="ambient3" src="ambient_element2.png" />
+          <img id="agil" src="art_fifco-55.png" />
+          <img id="simple" src="art_fifco-56.png" />
+          <img id="impacto" src="art_fifco-57.png" />
+          <img id="evolucion" src="art_fifco-58.png" />
           <img id="next" src="next.png" />
           <img id="prev" src="prev.png" />
           <img id="close" src="close.png" />
@@ -212,7 +216,7 @@ export function App() {
         {/* Video Principal */}
 
         <VideoGallery
-          videos={[{ src: "#video", autoplay: false },{ src: "#ambient-video-1", autoplay: false }]}
+          videos={[{ src: "#video", autoplay: false }]}
           titleSrc="#video-titulo"
           position={`${DEFAULT_DISTANCE_FROM_USER} 0 0`}
           rotation="0 -90 0"
@@ -353,13 +357,94 @@ export function App() {
           animation="property: position; to: 3 1 -1; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
         ></a-plane>
         <a-plane
+          src="#ambient2"
+          transparent="true"
+          position="-3 2 -2"
+          rotation="0 0 0"
+          scale="0.25 0.25 0.25"
+          material="shader: flat"
+          animation="property: position; to: 0 1 -2; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+        ></a-plane>
+        <a-plane
+          src="#ambient3"
+          transparent="true"
+          position="-2 0.5 -3"
+          rotation="0 0 0"
+          scale="0.5 0.25 0.5"
+          material="shader: flat"
+          animation="property: position; to: -0.5 -1 -1; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+        ></a-plane>
+        <a-plane
+          src="#evolucion"
+          transparent="true"
+          position="2 -1 -1"
+          rotation="0 -45 0"
+          scale="0.7 0.15 0.7"
+          material="shader: flat"
+          animation="property: position; to: 1.2 0 -2; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+        ></a-plane>
+        <a-plane
           src="#ambient3"
           transparent="true"
           position="2 1 1"
-          rotation="0 -90 0"
+          rotation="0 -135 0"
           scale="0.5 0.25 0.5"
           material="shader: flat"
           animation="property: position; to: 1 0.5 1; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+        ></a-plane>
+        <a-plane
+          src="#agil"
+          transparent="true"
+          position="1 0 1"
+          rotation="0 -90 0"
+          scale="0.7 0.25 0.7"
+          material="shader: flat"
+          animation="property: position; to: 3 -1 1; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+        ></a-plane>
+        <a-plane
+          src="#simple"
+          transparent="true"
+          position="2 -1.2 -0.5"
+          rotation="0 -90 0"
+          scale="0.7 0.15 0.7"
+          material="shader: flat"
+          animation="property: position; to: 2 -1.2 1; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+        ></a-plane>
+        <a-plane
+          src="#ambient3"
+          transparent="true"
+          position="-2 -1 1"
+          rotation="0 -225 0"
+          scale="0.5 0.25 0.5"
+          material="shader: flat"
+          animation="property: position; to: -1 0 1; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+        ></a-plane>
+        <a-plane
+          src="#ambient2"
+          transparent="true"
+          position="-1 1 2"
+          rotation="0 -225 0"
+          scale="0.2 0.2 0.2"
+          material="shader: flat"
+          animation="property: position; to: -1 -1 1; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+        ></a-plane>
+        <a-plane
+          src="#impacto"
+          transparent="true"
+          position="0 -1 2"
+          rotation="0 180 0"
+          scale="1 0.2 1"
+          material="shader: flat"
+          animation="property: position; to: 2 -1.5 2; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+        ></a-plane>
+        <a-plane
+          src="#ambient1"
+          transparent="true"
+          position="-3 -3 -2"
+          rotation="0 90 0"
+          scale="0.4 0.4 0.4"
+          material="shader: flat"
+          animation="property: position; to: -3 -1 -2; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
         ></a-plane>
       </a-scene>
     </>
