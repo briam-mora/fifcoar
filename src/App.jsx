@@ -332,7 +332,7 @@ export function App() {
         <a-plane
           src="#ambient1"
           transparent="true"
-          position="1 1.5 2"
+          position="0.5 1 2"
           rotation="0 180 0"
           scale="0.25 0.25 0.25"
           material="shader: flat"
@@ -431,11 +431,11 @@ export function App() {
         <a-plane
           src="#impacto"
           transparent="true"
-          position="0 -1 2"
+          position="2 -1.5 2"
           rotation="0 180 0"
           scale="1 0.2 1"
           material="shader: flat"
-          animation="property: position; to: 2 -1.5 2; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
+          animation="property: position; to: 0 -1 2; dur: 15000; easing: easeInOutQuad; loop: true; dir: alternate;"
         ></a-plane>
         <a-plane
           src="#ambient1"
