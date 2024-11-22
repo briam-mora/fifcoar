@@ -67,6 +67,7 @@ export function App() {
           <img id="date" src="date.png" />
           <video id="video" src="video.mp4" loop={false}></video>
           <video id="ambient-video-1" src="elemento1.mp4" muted={true} autoPlay loop={true}></video>
+          <audio src="bienvenida.wav" preload="auto"></audio>
         </a-assets>
 
         {/* Sky with panorama */}
