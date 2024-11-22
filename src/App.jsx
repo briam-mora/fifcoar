@@ -1,5 +1,5 @@
 import 'aframe';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ImageGallery from './components/ImageGallery.jsx';
 import VideoGallery from './components/VideoGallery.jsx';
 import './aframe/ScaleAnimator.jsx';
@@ -24,6 +24,17 @@ export function App() {
     audio.play();
     setShowPanelists(true)
   }
+
+  useEffect(() => {
+    const videoElement = document.querySelector('#video');
+    if (videoElement) {
+      videoElement.pause(); // Pause the video
+      videoElement.currentTime = 0; // Reset the video to the beginning
+    }
+  
+    return () => {
+    };
+  }, []);
 
   return (
     <>
