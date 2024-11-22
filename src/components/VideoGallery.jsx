@@ -65,6 +65,7 @@ const VideoGallery = ({ titleSrc, videos, position, rotation, scale, closeFuncti
         transparent="true"
         material="shader: flat"
         scale-animator="duration: 500; easing: easeInOutCubic"
+        hover-animator="duration: 2000; easing: easeInOutQuad; distance: 0.02"
       ></a-plane>
 
       {/* Video */}

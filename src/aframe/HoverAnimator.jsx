@@ -4,7 +4,8 @@ AFRAME.registerComponent('hover-animator', {
   schema: {
     duration: { type: 'number', default: 1000 }, // Duration in milliseconds
     easing: { type: 'string', default: 'linear' }, // Easing type
-    direction: { type: 'string', default: 'up' } // Easing type
+    direction: { type: 'string', default: 'up' }, // Direction: up, down, right, left
+    distance: { type: 'number', default: 0.05 } // Distance
   },
 
   init: function () {
@@ -16,16 +17,16 @@ AFRAME.registerComponent('hover-animator', {
 
     switch (data.direction) {
       case 'up':
-        yMovement = 0.05
+        yMovement = data.distance
         break;
       case 'down':
-        yMovement = -0.05
+        yMovement = -data.distance
         break;
       case 'right':
-        xMovement = 0.05
+        xMovement = data.distance
         break;
       case 'left':
-        xMovement = -0.05
+        xMovement = -data.distance
         break;
       default:
     }
