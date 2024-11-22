@@ -65,8 +65,7 @@ export function App() {
           <img id="prev" src="prev.png" />
           <img id="close" src="close.png" />
           <img id="date" src="date.png" />
-          <video id="video" src="video.mp4" loop={false}></video>
-          <video id="ambient-video-1" src="elemento1.mp4" muted={true} autoPlay loop={true}></video>
+          <video id="video" src="video.mp4" autoPlay={false} loop={false}></video>
           <audio src="bienvenida.wav" preload="auto"></audio>
         </a-assets>
 
