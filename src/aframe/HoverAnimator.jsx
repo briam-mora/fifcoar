@@ -3,11 +3,33 @@ import 'aframe';
 AFRAME.registerComponent('hover-animator', {
   schema: {
     duration: { type: 'number', default: 1000 }, // Duration in milliseconds
-    easing: { type: 'string', default: 'linear' } // Easing type
+    easing: { type: 'string', default: 'linear' }, // Easing type
+    direction: { type: 'string', default: 'up' } // Easing type
   },
 
   init: function () {
     const el = this.el;
+    const data = this.data;
+
+    let xMovement = 0;
+    let yMovement = 0;
+
+    switch (data.direction) {
+      case 'up':
+        yMovement = 0.05
+        break;
+      case 'down':
+        yMovement = -0.05
+        break;
+      case 'right':
+        xMovement = 0.05
+        break;
+      case 'left':
+        xMovement = -0.05
+        break;
+      default:
+    }
+
 
     // Wait until the entity is fully loaded
     el.addEventListener('loaded', () => {
@@ -18,7 +40,7 @@ AFRAME.registerComponent('hover-animator', {
       el.setAttribute('animation', {
         property: 'position',
         from: `${originalPosition.x} ${originalPosition.y} ${originalPosition.z}`,
-        to: `${originalPosition.x} ${originalPosition.y + 0.05} ${originalPosition.z}`, // Convert to string
+        to: `${originalPosition.x + xMovement} ${originalPosition.y + yMovement} ${originalPosition.z}`, // Convert to string
         dur: this.data.duration,
         easing: this.data.easing,
         loop: true,

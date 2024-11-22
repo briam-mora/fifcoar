@@ -28,13 +28,13 @@ export function App() {
   return (
     <>
       <a-scene loading-screen="dotsColor: #9BD7E1; backgroundColor: #2D387F">
-        <a-camera look-controls="reverseMouseDrag: true" position="0 0 0"></a-camera>
+        <a-camera look-controls="reverseMouseDrag: true" wasd-controls-enabled="false" position="0 0 0"></a-camera>
         <a-entity id="raycaster" raycaster="objects: .clickable" cursor="rayOrigin: mouse"></a-entity>
 
         {/* Load assets */}
         <a-assets>
           <img id="panorama" src="panorama.webp" />
-          {content.videos.map(video => <video key={video.id} id={video.id} src={video.src} muted={video.muted} autoPlay={video.autoPlay}></video>)}
+          {content.videos.map(video => <video key={video.id} id={video.id} src={video.src} muted={video.muted} autoPlay={video.autoPlay} loop={false}></video>)}
           {content.images.map(image => <img key={image.id} id={image.id} src={image.src} />)}
           {content.panelists.map(panelist => <img key={panelist.id} id={panelist.id} src={panelist.src} />)}
           <img id="light-arrow" src="icono.png" />
@@ -61,7 +61,8 @@ export function App() {
           <img id="prev" src="prev.png" />
           <img id="close" src="close.png" />
           <img id="date" src="date.png" />
-          <video id="video" src="video.mp4" autoPlay loop="false"></video>
+          <video id="video" src="video.mp4" loop={false}></video>
+          <video id="ambient-video-1" src="elemento1.mp4" muted={true} autoPlay loop={true}></video>
         </a-assets>
 
         {/* Sky with panorama */}
@@ -178,6 +179,7 @@ export function App() {
           ></a-plane>
           {content.panelists.map((panelist, index) => (
             <a-plane
+              key={panelist.id}
               src={`#${panelist.id}`}
               class="clickable"
               position={`${-0.322 + (index % 3) * 0.3} -${0.8 + (Math.floor(index / 3) * 0.6)} ${0 + index * 0.01}`}
@@ -185,6 +187,7 @@ export function App() {
               transparent="true"
               material="shader: flat"
               onClick={openPanelists}
+              hover-animator={`direction: ${index === 0 || index === 3 ? 'left': (index === 2 || index === 5 ? 'right' : (index === 1 ? 'up' : 'down'))}; duration: 2000; easing: easeInOutQuad;`}
             ></a-plane>
           ))}
           <a-plane
@@ -206,14 +209,14 @@ export function App() {
           scale="1 1 1"
           closeFunction={() => setShowPanelists(false)} />}
 
-          {/* Video Principal */}
+        {/* Video Principal */}
 
         <VideoGallery
-          videos={[{ src: "#video", autoplay: false }]}
+          videos={[{ src: "#video", autoplay: false },{ src: "#ambient-video-1", autoplay: false }]}
           titleSrc="#video-titulo"
           position={`${DEFAULT_DISTANCE_FROM_USER} 0 0`}
           rotation="0 -90 0"
-          scale="1 1 1"/>
+          scale="1 1 1" />
 
         {!showCharacteristics && <a-plane
           class="clickable"
