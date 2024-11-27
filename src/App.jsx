@@ -85,14 +85,12 @@ export function App() {
 
 
         {started && <a-plane
-          class="clickable"
           src="#date"
           position={`0.04 -0.2 -${DEFAULT_DISTANCE_FROM_USER}`}
           rotation="0 0 0"
           scale="1.4 0.2 1.4"
           transparent="true"
           material="shader: flat"
-          onClick={() => { window.open('https://maps.app.goo.gl/iwQ4uWfBv2cank8i9?g_st=com.google.maps.preview.copy', '_blank'); }}
         ></a-plane>}
 
         {started && (
@@ -178,7 +176,7 @@ export function App() {
 
 
         {!showPanelist && <a-entity
-          position={`-${DEFAULT_DISTANCE_FROM_USER + 0.1} 0.75 0`}
+          position={`-${DEFAULT_DISTANCE_FROM_USER + 0.1} 0.4 0`}
           rotation="0 90 0"
           scale="1 0.75 1"
           scale-animator="duration: 500; easing: easeInOutCubic"
@@ -208,7 +206,7 @@ export function App() {
           <a-plane
             src="#panelists-text"
             class="clickable"
-            position="0 -1.9 0"
+            position="0 -1.25 0"
             scale="1 0.2 1"
             transparent="true"
             material="shader: flat"
